@@ -17,8 +17,6 @@
 
 ## 💻 Informações:
 
-> 🚩 Ainda em Desenvolvimento!!
-
 > Foi utilizado o gerenciador de pacotes [Yarn](https://yarnpkg.com/pt-BR/) no Backend, Frontend e Mobile.
 
 ### Backend:
@@ -48,6 +46,17 @@ Feito com [Expo(React Native)](https://expo.io/) usando:
 - React Navigation
 - React Navigation Stack
 - React Native Gesture Handler
+
+## 👊 Desafios:
+
+Foram feitos alguns "desafios" de forma indireta na "[5° Aula] Funcionalidades Avançadas" e aqui estão eles:
+
+- [ ] JEST - TDD(Test-Driven Development)
+- [ ] ESLint e Prettier (Padrão de Codigo)
+- [ ] Autenticação JWT
+- [ ] Styled-Components
+
+<br>
 
 ## 👨‍🏫 Testando:
 
