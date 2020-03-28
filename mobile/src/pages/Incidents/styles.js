@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Constants from "expo-constants";
+import styled from 'styled-components';
+import Constants from 'expo-constants';
 
 const StatusBar = Constants.statusBarHeight + 20;
 

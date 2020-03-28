@@ -1,9 +1,9 @@
-import React from "react";
-import { Feather } from "@expo/vector-icons";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { TouchableOpacity, Image, Linking } from "react-native";
-import * as MailComposer from "expo-mail-composer";
-import logoImg from "../../assets/logo.png";
+import React from 'react';
+import { Feather } from '@expo/vector-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { TouchableOpacity, Image, Linking } from 'react-native';
+import * as MailComposer from 'expo-mail-composer';
+import logoImg from '../../assets/logo.png';
 
 import {
   Container,
@@ -16,8 +16,8 @@ import {
   HeroDescription,
   Actions,
   Action,
-  ActionText
-} from "./styles.js";
+  ActionText,
+} from './styles.js';
 
 export default function Detail() {
   const navigation = useNavigation();
@@ -33,13 +33,13 @@ export default function Detail() {
     MailComposer.composeAsync({
       subject: `Heroi do caso: ${incident.title}`,
       recipients: [incident.email],
-      body: message
+      body: message,
     });
   }
 
   function sendWhatsapp() {
     Linking.openURL(
-      `whatsapp://send?phone=${incident.whatsapp}&text=${message}`
+      `whatsapp://send?phone=${incident.whatsapp}&text=${message}`,
     );
   }
   return (
@@ -61,9 +61,9 @@ export default function Detail() {
 
         <IncidentProperty>VALOR:</IncidentProperty>
         <IncidentValue>
-          {Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL"
+          {Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
           }).format(incident.value)}
         </IncidentValue>
       </Incident>

@@ -1,21 +1,21 @@
-import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { FiArrowLeft } from "react-icons/fi";
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { FiArrowLeft } from 'react-icons/fi';
 
-import api from "../../services/api";
+import api from '../../services/api';
 
-import logoImg from "../../assets/logo.svg";
+import logoImg from '../../assets/logo.svg';
 
-import "./styles.css";
+import './styles.css';
 
 export default function NewIncident() {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [value, setValue] = useState("");
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [value, setValue] = useState('');
 
   const history = useHistory();
 
-  const ongId = localStorage.getItem("ongId");
+  const ongId = localStorage.getItem('ongId');
 
   async function handleNewIncident(e) {
     e.preventDefault();
@@ -23,19 +23,19 @@ export default function NewIncident() {
     const data = {
       title,
       description,
-      value
+      value,
     };
 
     try {
-      await api.post("incidents", data, {
+      await api.post('incidents', data, {
         headers: {
-          Authorization: ongId
-        }
+          Authorization: ongId,
+        },
       });
 
-      history.push("/profile");
+      history.push('/profile');
     } catch (error) {
-      alert("Erro Ao Cadastrar Caso. Tente Novamente.");
+      alert('Erro Ao Cadastrar Caso. Tente Novamente.');
     }
   }
 
@@ -61,17 +61,17 @@ export default function NewIncident() {
           <input
             placeholder="Título do caso"
             value={title}
-            onChange={e => setTitle(e.target.value)}
+            onChange={(e) => setTitle(e.target.value)}
           />
           <textarea
             placeholder="Descrição"
             value={description}
-            onChange={e => setDescription(e.target.value)}
+            onChange={(e) => setDescription(e.target.value)}
           />
           <input
             placeholder="Valor em Reais"
             value={value}
-            onChange={e => setValue(e.target.value)}
+            onChange={(e) => setValue(e.target.value)}
           />
 
           <button className="button" type="submit">
