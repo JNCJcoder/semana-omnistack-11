@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Link, useHistory } from "react-router-dom";
-import { FiArrowLeft } from "react-icons/fi";
+import { Link, useHistory } from 'react-router-dom';
+import { FiArrowLeft } from 'react-icons/fi';
 
-import api from "../../services/api";
+import api from '../../services/api';
 
-import logoImg from "../../assets/logo.svg";
+import logoImg from '../../assets/logo.svg';
 
-import "./styles.css";
+import './styles.css';
 
 export default function Register() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [whats, setWhats] = useState("");
-  const [cidade, setCidade] = useState("");
-  const [uf, setUf] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [whats, setWhats] = useState('');
+  const [cidade, setCidade] = useState('');
+  const [uf, setUf] = useState('');
 
   const history = useHistory();
 
@@ -26,15 +26,15 @@ export default function Register() {
       email,
       whats,
       cidade,
-      uf
+      uf,
     };
 
     try {
-      const response = await api.post("ongs", data);
+      const response = await api.post('ongs', data);
       alert(`Seu ID de acesso: ${response.data.id}`);
-      history.push("/");
+      history.push('/');
     } catch (err) {
-      alert("Erro no seu cadastro, tente novamente.");
+      alert('Erro no seu cadastro, tente novamente.');
     }
   }
 
@@ -60,34 +60,34 @@ export default function Register() {
           <input
             placeholder="Nome Da ONG"
             value={name}
-            onChange={e => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
           />
 
           <input
             type="email"
             placeholder="E-mail"
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <input
             placeholder="WhatsApp"
             value={whats}
-            onChange={e => setWhats(e.target.value)}
+            onChange={(e) => setWhats(e.target.value)}
           />
 
           <div className="input-group">
             <input
               placeholder="Cidade"
               value={cidade}
-              onChange={e => setCidade(e.target.value)}
+              onChange={(e) => setCidade(e.target.value)}
             />
 
             <input
               placeholder="UF"
               style={{ width: 80 }}
               value={uf}
-              onChange={e => setUf(e.target.value)}
+              onChange={(e) => setUf(e.target.value)}
             />
           </div>
 

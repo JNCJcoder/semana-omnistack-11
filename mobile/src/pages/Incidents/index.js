@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Feather } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
-import { Image } from "react-native";
-import api from "../../services/api";
+import React, { useEffect, useState } from 'react';
+import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { Image } from 'react-native';
+import api from '../../services/api';
 
-import logoImg from "../../assets/logo.png";
+import logoImg from '../../assets/logo.png';
 
 import {
   Container,
@@ -18,8 +18,8 @@ import {
   IncidentProperty,
   IncidentValue,
   DetailsButton,
-  DetailsButtonText
-} from "./styles";
+  DetailsButtonText,
+} from './styles';
 
 export default function Incidents() {
   const navigation = useNavigation();
@@ -29,7 +29,7 @@ export default function Incidents() {
   const [loading, setLoading] = useState(false);
 
   function navigateToDetails(incident) {
-    navigation.navigate("Detail", { incident });
+    navigation.navigate('Detail', { incident });
   }
 
   async function loadIncidents() {
@@ -43,12 +43,12 @@ export default function Incidents() {
 
     setLoading(true);
 
-    const response = await api.get("incidents", {
-      params: { page }
+    const response = await api.get('incidents', {
+      params: { page },
     });
 
     setIncidents([...incidents, ...response.data]);
-    setTotal(response.headers["x-total-count"]);
+    setTotal(response.headers['x-total-count']);
     setLoading(false);
     setPage(page + 1);
   }
@@ -84,9 +84,9 @@ export default function Incidents() {
 
             <IncidentProperty>VALOR:</IncidentProperty>
             <IncidentValue>
-              {Intl.NumberFormat("pt-BR", {
-                style: "currency",
-                currency: "BRL"
+              {Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
               }).format(incident.value)}
             </IncidentValue>
 
