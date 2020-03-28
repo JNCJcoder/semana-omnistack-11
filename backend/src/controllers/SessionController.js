@@ -1,4 +1,6 @@
 const connection = require('../database/connection');
+const jwt = require('jsonwebtoken');
+const { Secret, Expires } = require('../config/token');
 
 module.exports = {
   async create(request, response) {
@@ -12,6 +14,15 @@ module.exports = {
     if (!ong) {
       return response.status(400).json({ error: 'No ONG found with this ID' });
     }
-    return response.json(ong);
+
+    const token = jwt.sign({ id: id }, Secret, {
+      expiresIn: Expires,
+    });
+
+    return response.send({
+      token: token,
+      id: id,
+      name: ong.name,
+    });
   },
 };

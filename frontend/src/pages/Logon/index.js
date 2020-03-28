@@ -19,6 +19,7 @@ export default function Logon() {
     try {
       const response = await api.post('sessions', { id });
 
+      localStorage.setItem('ongToken', 'Bearer ' + response.data.token);
       localStorage.setItem('ongId', id);
       localStorage.setItem('ongName', response.data.name);
 

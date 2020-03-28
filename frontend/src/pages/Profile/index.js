@@ -12,26 +12,27 @@ export default function Profile() {
   const [incidents, setIncidents] = useState([]);
 
   const history = useHistory();
-  const ongId = localStorage.getItem('ongId');
+
+  const token = localStorage.getItem('ongToken');
   const ongName = localStorage.getItem('ongName');
 
   useEffect(() => {
     api
       .get('profile', {
         headers: {
-          Authorization: ongId,
+          Authorization: token,
         },
       })
       .then(response => {
         setIncidents(response.data);
       });
-  }, [ongId]);
+  }, [token]);
 
   async function handleDeleteIncident(id) {
     try {
       await api.delete(`incidents/${id}`, {
         headers: {
-          Authorization: ongId,
+          Authorization: token,
         },
       });
 

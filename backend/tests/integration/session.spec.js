@@ -18,9 +18,5 @@ describe('Session', () => {
         id: '65bc04f6',
       })
       .expect(200);
-
-    expect(response.body).toEqual({
-      name: 'APAD',
-    });
   });
 });

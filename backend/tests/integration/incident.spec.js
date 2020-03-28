@@ -4,6 +4,8 @@ const connection = require('../../src/database/connection');
 
 describe('INCIDENTS', () => {
   let incidentID;
+  let Token;
+
   beforeAll(async () => {
     await connection.migrate.latest();
   });
@@ -33,9 +35,16 @@ describe('INCIDENTS', () => {
   });
 
   it('consegue criar um novo Incident ?', async () => {
+    const responseOng = await request(app)
+      .post('/sessions')
+      .send({
+        id: '65bc04f6',
+      });
+
+    Token = 'Bearer ' + responseOng.body.token;
     const response = await request(app)
       .post('/incidents')
-      .set({ Authorization: '65bc04f6' })
+      .set({ Authorization: Token })
       .send({
         title: 'Teste',
         description: 'Me Exclua',
@@ -49,7 +58,7 @@ describe('INCIDENTS', () => {
   it('Consegue deletar o Incident ?', async () => {
     const response = await request(app)
       .del(`/incidents/${incidentID}`)
-      .set({ Authorization: '65bc04f6' })
+      .set({ Authorization: Token })
       .expect(204);
   });
 });

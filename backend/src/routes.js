@@ -1,4 +1,5 @@
 const express = require('express');
+const jwt = require('express-jwt');
 const { celebrate, Segments, Joi } = require('celebrate');
 
 // Controllers
@@ -8,6 +9,7 @@ const ProfileController = require('./controllers/ProfileController');
 const SessionController = require('./controllers/SessionController');
 
 const routes = express.Router();
+const { Secret } = require('./config/token');
 
 routes.get('/ongs', OngController.index);
 routes.post(
@@ -32,6 +34,7 @@ routes.post(
 );
 routes.put(
   '/ongs/:id',
+  jwt({ secret: Secret }),
   celebrate({
     [Segments.PARAMS]: Joi.object().keys({
       id: Joi.string().required(),
@@ -41,6 +44,7 @@ routes.put(
 );
 routes.delete(
   '/ongs/:id',
+  jwt({ secret: Secret }),
   celebrate({
     [Segments.PARAMS]: Joi.object().keys({
       id: Joi.string().required(),
@@ -58,9 +62,10 @@ routes.get(
   }),
   IncidentController.index,
 );
-routes.post('/incidents', IncidentController.create);
+routes.post('/incidents', jwt({ secret: Secret }), IncidentController.create);
 routes.delete(
   '/incidents/:id',
+  jwt({ secret: Secret }),
   celebrate({
     [Segments.PARAMS]: Joi.object().keys({
       id: Joi.number().required(),
@@ -71,6 +76,7 @@ routes.delete(
 
 routes.get(
   '/profile',
+  jwt({ secret: Secret }),
   celebrate({
     [Segments.HEADERS]: Joi.object({
       authorization: Joi.string().required(),

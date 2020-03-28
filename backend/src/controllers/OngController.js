@@ -1,3 +1,5 @@
+const jwt = require('jsonwebtoken');
+const { Secret, Expires } = require('../config/token');
 const generateUniqueId = require('../Utils/generateUniqueId');
 const connection = require('../database/connection');
 
@@ -21,12 +23,20 @@ module.exports = {
       uf,
     });
 
-    return response.json({ id });
+    const token = jwt.sign({ id: id }, Secret, {
+      expiresIn: Expires,
+    });
+
+    return response.send({
+      token,
+      id,
+      name,
+    });
   },
 
   async update(request, response) {
     const { id } = request.params;
-    const ong_id = request.headers.authorization;
+    const ong_id = request.user.id;
     const { name, email, whatsapp, city, uf } = request.body;
 
     if (id != ong_id) {
@@ -57,7 +67,7 @@ module.exports = {
 
   async delete(request, response) {
     const { id } = request.params;
-    const ong_id = request.headers.authorization;
+    const ong_id = request.user.id;
 
     if (id != ong_id) {
       return response.status(401).json({ error: 'Operation not permitted. ' });

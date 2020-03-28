@@ -12,9 +12,15 @@ describe('Profile', () => {
   });
 
   it('Consegue mostrar todos os Incidents de uma ONG ?', async () => {
+    const responseOng = await request(app)
+      .post('/sessions')
+      .send({
+        id: '65bc04f6',
+      });
+
     const listIncidentsResponse = await request(app)
       .get('/profile')
-      .set({ Authorization: '65bc04f6' });
+      .set({ Authorization: 'Bearer ' + responseOng.body.token });
 
     expect(listIncidentsResponse.body).toEqual([
       {
