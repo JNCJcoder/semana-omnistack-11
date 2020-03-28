@@ -53,7 +53,7 @@ Foram feitos alguns "desafios" de forma indireta na "[5° Aula] Funcionalidades 
 - [ ] JEST - TDD(Test-Driven Development)
 - [ ] ESLint e Prettier (Padrão de Codigo)
 - [ ] Autenticação JWT
-- [x] <a href="/">Styled-Components</a>
+- [x] <a href="https://github.com/drawciamage/semana-omnistack-11/commit/b7bb63a1b67237e285aa8003e3d6340a1d3dc497">Styled-Components</a>
 
 <br>
 
