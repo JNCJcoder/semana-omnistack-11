@@ -5,7 +5,6 @@
   <br>
 </h1>
 
-
 <h3 align="center">Be The Hero</h4>
 
 <h4 align="center">Projeto realizado durante o evento da 11° Semana OmniStack, promovido pelo Diego da Rocketseat.</h4>
@@ -54,7 +53,7 @@ Foram feitos alguns "desafios" de forma indireta na "[5° Aula] Funcionalidades 
 - [ ] JEST - TDD(Test-Driven Development)
 - [ ] ESLint e Prettier (Padrão de Codigo)
 - [ ] Autenticação JWT
-- [ ] Styled-Components
+- [x] <a href="/">Styled-Components</a>
 
 <br>
 
@@ -81,4 +80,5 @@ yarn start
 <br>
 
 ## 📝Licença
+
 Este projeto está sob a licença [MIT](LICENSE).

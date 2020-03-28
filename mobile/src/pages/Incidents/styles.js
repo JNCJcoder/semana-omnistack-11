@@ -1,75 +1,76 @@
-import { StyleSheet } from "react-native";
+import styled from "styled-components";
 import Constants from "expo-constants";
 
-export default StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 24,
-    paddingTop: Constants.statusBarHeight + 20
-  },
+const StatusBar = Constants.statusBarHeight + 20;
 
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center"
-  },
+export const Container = styled.View`
+  flex: 1;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: ${StatusBar}px;
+`;
 
-  headerText: {
-    fontSize: 15,
-    color: "#737380"
-  },
+export const Header = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
 
-  headerTextBold: {
-    fontWeight: "bold"
-  },
+export const HeaderText = styled.Text`
+  font-size: 15px;
+  color: #737380;
+`;
 
-  title: {
-    fontSize: 30,
-    marginBottom: 16,
-    marginTop: 48,
-    color: "#13131a",
-    fontWeight: "bold"
-  },
+export const HeaderTextBold = styled(HeaderText)`
+  font-weight: bold;
+`;
 
-  description: {
-    fontSize: 16,
-    lineHeight: 24,
-    color: "#737380"
-  },
+export const Title = styled.Text`
+  font-size: 30px;
+  margin-bottom: 16px;
+  margin-top: 48px;
+  color: #13131a;
+  font-weight: bold;
+`;
 
-  incidentList: {
-    marginTop: 10
-  },
+export const Description = styled.Text`
+  font-size: 16px;
+  line-height: 24px;
+  color: #737380;
+`;
 
-  incident: {
-    padding: 24,
-    borderRadius: 8,
-    backgroundColor: "#fff",
-    marginBottom: 16
-  },
+export const IncidentList = styled.FlatList`
+  margin-top: 10px;
+`;
 
-  incidentProperty: {
-    fontSize: 14,
-    color: "#41414d",
-    fontWeight: "bold"
-  },
+export const Incident = styled.View`
+  padding: 24px;
+  border-radius: 8px;
+  background-color: #fff;
+  margin-bottom: 16px;
+`;
 
-  incidentValue: {
-    marginTop: 8,
-    fontSize: 15,
-    marginBottom: 24,
-    color: "#737380"
-  },
+export const IncidentProperty = styled.Text`
+  font-size: 14px;
+  color: #41414d;
+  font-weight: bold;
+`;
 
-  detailsButton: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center"
-  },
+export const IncidentValue = styled.Text`
+  margin-top: 8px;
+  margin-bottom: 24px;
+  font-size: 15px;
+  color: #737380;
+`;
 
-  detailsButtonText: {
-    color: "#e02041",
-    fontSize: 15,
-    fontWeight: "bold"
-  }
-});
+export const DetailsButton = styled.TouchableOpacity`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const DetailsButtonText = styled.Text`
+  color: #e02041;
+  font-size: 15px;
+  font-weight: bold;
+`;
