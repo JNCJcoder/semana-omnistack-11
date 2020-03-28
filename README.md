@@ -50,8 +50,8 @@ Feito com [Expo(React Native)](https://expo.io/) usando:
 
 Foram feitos alguns "desafios" de forma indireta na "[5° Aula] Funcionalidades Avançadas" e aqui estão eles:
 
-- [ ] JEST - TDD(Test-Driven Development)
-- [x] <a href="/">ESLint e Prettier (Padrão de Codigo)</a>
+- [x] <a href="https://github.com/drawciamage/semana-omnistack-11/commit/03f3af091b834cec972a490ac346b520767c5802">JEST - TDD(Test-Driven Development)</a>
+- [x] <a href="https://github.com/drawciamage/semana-omnistack-11/commit/03f3af091b834cec972a490ac346b520767c5802">ESLint e Prettier (Padrão de Codigo)</a>
 - [ ] Autenticação JWT
 - [x] <a href="https://github.com/drawciamage/semana-omnistack-11/commit/b7bb63a1b67237e285aa8003e3d6340a1d3dc497">Styled-Components</a>
 
