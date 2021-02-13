@@ -57,6 +57,14 @@ Foram feitos alguns "desafios" de forma indireta na "[5° Aula] Funcionalidades 
 
 <br>
 
+## 📝 Certificado:
+
+Certificado de conclusão da Semana OmniStack 11, provando ter aprendido com as aulas.
+
+[Certificado(PDF)](certificado.pdf).
+
+<br>
+
 ## 👨‍🏫 Testando:
 
 Necessario instalar o [Expo](https://expo.io/):
